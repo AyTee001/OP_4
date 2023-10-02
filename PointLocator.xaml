@@ -1,0 +1,38 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:OP_4.Models"
+    xmlns:oxy="http://oxyplot.org/wpf" x:Class="OP_4.PointLocator"
+    mc:Ignorable="d"
+    Title="Point Locator" Height="592" Width="1043" ResizeMode="NoResize" Icon="/aim-svgrepo-com.png" WindowStyle="ThreeDBorderWindow"
+    Background="#91AEC1">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Grid Margin="0,0,10,19">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="323*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="675*"/>
+        </Grid.ColumnDefinitions>
+        <oxy:PlotView 
+            HorizontalAlignment="Left" 
+            Height="475" 
+            Margin="33,0,0,0" 
+            VerticalAlignment="Center" 
+            Width="637" 
+            Model="{Binding ScatterPlotModel}" Grid.Column="1" Grid.ColumnSpan="2"
+            x:Name="plotView"
+        />
+        <TextBox Name="xCoordTextBox" HorizontalAlignment="Left" Margin="41,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox Name="yCoordTextBox" HorizontalAlignment="Left" Margin="40,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Enter x coordinate" HorizontalAlignment="Left" Height="27" Margin="40,193,0,0" VerticalAlignment="Top" Width="118"/>
+        <Button Name="PointToPlot" Content="Search point" HorizontalAlignment="Left" Margin="40,384,0,0" VerticalAlignment="Top" Width="156" Height="30" Click="PointToPlot_Click"/>
+        <Label Content="Enter y coordinate" HorizontalAlignment="Left" Margin="40,248,0,0" VerticalAlignment="Top" Width="118"/>
+        <Button Name="ClearPlot" Content="Clear plot" HorizontalAlignment="Left" Margin="40,448,0,0" VerticalAlignment="Top" Width="156" Height="30" Click="ClearPlot_Click"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,96,0,0" TextWrapping="Wrap" Text="Enter coordinates in according text boxes and you will see the point on the plot, as well as get a message that will tell in which quadrant the dot went" VerticalAlignment="Top" Height="92" Width="240"/>
+        <TextBlock HorizontalAlignment="Left" Height="31" Margin="40,65,0,0" TextWrapping="Wrap" Text="How to use" VerticalAlignment="Top" Width="108" FontWeight="Bold" FontSize="20"/>
+    </Grid>
+</Window>
